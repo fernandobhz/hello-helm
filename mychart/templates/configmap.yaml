@@ -3,8 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
   {{- template "mychart.labels" . }}
-  labels:
-    {{ template "mychart.app" . }}
 data:
   myvalue: "Hello World"  
   {{- $relname := .Release.Name }}
@@ -25,5 +23,4 @@ data:
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   date: {{ now }}
-  date-html: {{ now | htmlDate }} 
-{{ template "mychart.app" . }}
+  date-html: {{ now | htmlDate }}
