@@ -1,36 +1,33 @@
+# Docker Desktop Kubernetes
 
+Install the Docker Desktop, after enable Kubernetes on its configuration section.
 
-# ingress install
+# Ingress
 
-Just installing that
+You are going to need to install the ingress-nginx, to do so run that command
 
+```sh
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.43.0/deploy/static/provider/cloud/deploy.yaml
+```
 
-and adding the host to hosts file worked....
+# Hosts File
 
-needs to test if is the v.0.43 was that did the trick
+For each domain that you set in ingress, you need to put it at the hosts files in `c:\windows\system32\drivers\etc\hosts`
 
---- 
+# Dashboard
 
-* install the ingress
-* modify the ingress service to be nodeport insteadof loadbalancer
+To install the K8s Dashboard, run that command:
 
-helm install --namespace kube-system nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+```
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/cloud/deploy.yaml
-
-
-
-helm install --namespace kube-system nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx
+# Useful links
 
 https://github.com/docker/for-win/issues/7094
 
 https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
 
-
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
-
 https://github.com/kubernetes-tn/guideline-kubernetes-enterprise/blob/master/general/desktop-env-setup.md
-
 
 https://stackoverflow.com/questions/60839510/docker-desktop-k8s-plus-https-proxy-multiple-external-ports-to-pods-on-http-in
